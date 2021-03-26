@@ -82,25 +82,14 @@ INSERT INTO Sales.TicketType (TypeName, TicketId)
 SELECT * FROM Sales.TicketType;
 
 
-
-
-
-
-
-
 INSERT INTO Athletics.Season (SeasonName, StartDate, EndDate)
 	VALUES (N'Fall', '2021-9-01 00:00:00', '2021-11-30 00:00:00'),
 		   (N'Winter', '2021-12-01 00:00:00', '2021-02-28 00:00:00'),
 		   (N'Spring', '2021-03-01 00:00:00', '2021-05-31 00:00:00'),
 	       (N'Summer', '2021-06-01 00:00:00', '2021-08-31 00:00:00')
 
-INSERT INTO Athletics.Sport (SportName)
-	VALUES (N'Basketball'),
-		   (N'Golf'),
-		   (N'Tennis'),
-		   (N'Baseball'),
-		   (N'Hockey'),
-		   (N'Football')
+SELECT * FROM Athletics.Season;
+
 
 INSERT INTO Athletics.Game (GameType)
 	VALUES (N'Regular Season'),
@@ -108,16 +97,16 @@ INSERT INTO Athletics.Game (GameType)
 		   (N'NCAA Tournament'),
 		   (N'Special Event')
 
+SELECT * FROM Athletics.Game;
+
+
 INSERT INTO Athletics.Athlete (FirstName, LastName, AthleteHeight, AthleteWeight, Hometown, Class, HighSchool, Bio)
 	VALUES (N'James', N'Cutler', N'6ft 2in', N'220 lbs', N'Columbia, MO', N'Sophomore', N'George Washington High', N'James has 3 sisters and a 3.5 GPA.'),
 		   (N'Jane', N'Moss', N'5ft 7in', N'140 lbs', N'Columbia, MO', N'Senior', N'St. Peter High', N'Jane has two brothers who graduated from TSU and is currently an All-American.'),
 	       (N'Adam', N'Graves', N'5ft 11in', N'176 lbs', N'Austin, TX', N'Sophomore', N'Alamo High', N'Adam transferred from the University of Texas and loves his 2 dogs.'),
 		   (N'Rita', N'Martinez', N'6ft 0in', N'185 lbs', N'San Diego, CA', N'Freshman', N'Coastal High', N'Rita was a National Honors Society member and loves to listen to music.')
 
-
-
-
-
+SELECT * FROM Athletics.Athlete;
 
 INSERT INTO Athletics.Season (SeasonName, StartDate, EndDate)
 	VALUES (N'Fall', '2021-9-01 00:00:00', '2021-11-30 00:00:00'),
@@ -125,23 +114,17 @@ INSERT INTO Athletics.Season (SeasonName, StartDate, EndDate)
 		   (N'Spring', '2021-03-01 00:00:00', '2021-05-31 00:00:00'),
 	       (N'Summer', '2021-06-01 00:00:00', '2021-08-31 00:00:00')
 
-INSERT INTO Athletics.Sport (SportName)
-	VALUES (N'Basketball'),
-		   (N'Golf'),
-		   (N'Tennis'),
-		   (N'Baseball'),
-		   (N'Hockey'),
-		   (N'Football')
+SELECT * FROM Athletics.Season;
 
-INSERT INTO Athletics.Game (GameType)
-	VALUES (N'Regular Season'),
-		   (N'Regional Playoffs'),
-		   (N'NCAA Tournament'),
-		   (N'Special Event')
+INSERT INTO Athletics.Sport (SeasonId, SportName)
+	VALUES (1, N'Basketball'),
+		   (4, N'Golf'),
+		   (4, N'Tennis'),
+		   (3, N'Baseball'),
+		   (2, N'Hockey'),
+		   (1, N'Football')
 
-INSERT INTO Athletics.Athlete (FirstName, LastName, AthleteHeight, AthleteWeight, Hometown, Class, HighSchool, Bio)
-	VALUES (N'James', N'Cutler', N'6ft 2in', N'220 lbs', N'Columbia, MO', N'Sophomore', N'George Washington High', N'James has 3 sisters and a 3.5 GPA.'),
-		   (N'Jane', N'Moss', N'5ft 7in', N'140 lbs', N'Columbia, MO', N'Senior', N'St. Peter High', N'Jane has two brothers who graduated from TSU and is currently an All-American.'),
-	       (N'Adam', N'Graves', N'5ft 11in', N'176 lbs', N'Austin, TX', N'Sophomore', N'Alamo High', N'Adam transferred from the University of Texas and loves his 2 dogs.'),
-		   (N'Rita', N'Martinez', N'6ft 0in', N'185 lbs', N'San Diego, CA', N'Freshman', N'Coastal High', N'Rita was a National Honors Society member and loves to listen to music.')
+SELECT * FROM Athletics.Sport;
+
+
 
