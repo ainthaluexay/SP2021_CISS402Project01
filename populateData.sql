@@ -34,4 +34,15 @@ INSERT INTO Sales.Account (CustomerId, AccountTypeId, BenefitId)
 
 SELECT * FROM Sales.Account;
 
-INSERT INTO Sales.Donation
+
+INSERT INTO Sales.Donation (Amount, MemberType, ReceiptDateTime)
+	VALUES  (15.00, N'Scratch', '2020-02-14 10:15:20'),
+			(9045.00, N'Tiger', '2021-06-10 09:15:30'),
+			(750000.00, N'Pink Tiger', '2021-10-31 20:15:20'),
+			(120000.00, N'Elite Tiger', '2020-04-14 07:15:00'),
+			(150.00, N'Scratch', '2021-02-20 12:45:55'),
+			(155000.00, N'Elite Tiger', '2021-03-26 18:15:20')
+
+SELECT * FROM Sales.Donation;
+
+
