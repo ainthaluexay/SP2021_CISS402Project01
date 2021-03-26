@@ -85,14 +85,15 @@ CREATE TABLE Sales.Purchase
 
 CREATE TABLE Sales.Ticket
 (
+	AccountId INT NOT NULL,
 	TicketId INT NOT NULL IDENTITY,
 	TicketPrice MONEY NOT NULL,
 	SportType NVARCHAR(120) NOT NULL,
 	SeatType NVARCHAR(120) NOT NULL,
 	SaleDateTime DATETIME2 NULL,
 	GameDateTime DATETIME2 NULL,
-	OpponentName NVARCHAR(1000) NOT NULL,
-	AccountId INT NOT NULL
+	OpponentName NVARCHAR(1000) NOT NULL
+	
 	CONSTRAINT PK_Ticket PRIMARY KEY(TicketId),
 	CONSTRAINT FK_Ticket_Account FOREIGN KEY(AccountId) REFERENCES Sales.Account(AccountId)
 );
