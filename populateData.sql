@@ -129,6 +129,8 @@ INSERT INTO Athletics.Athlete (FirstName, LastName, AthleteHeight, AthleteWeight
 
 SELECT * FROM Athletics.Athlete;
 
+INSERT INTO Ath
+
 SELECT * FROM Athletics.NewsList;
 SELECT * FROM Athletics.Team;
 SELECT * FROM Athletics.Schedule;
