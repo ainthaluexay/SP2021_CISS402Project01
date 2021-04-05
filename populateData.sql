@@ -129,12 +129,57 @@ INSERT INTO Athletics.Athlete (FirstName, LastName, AthleteHeight, AthleteWeight
 
 SELECT * FROM Athletics.Athlete;
 
-INSERT INTO Ath
+INSERT INTO Athletics.Team (SportId,TeamName,Roster, Mascot)
+	VALUES	(1, 'Tigers Basketball', 1, 'TSU Tiger'),
+			(2, 'Lady Tigers Basketball', 1, 'TSU Tiger'),
+			(3, 'Tigers Golf', 0, 'TSU Tiger'),
+			(4, 'Lady Tigers Tennis', 0, 'TSU Tiger'),
+			(5, 'Tigers Baseball', 1, 'TSU Tiger'),
+			(6, 'Tigers Softball', 1, 'TSU Tiger'),
+			(7, 'Lady Tigers Bowling', 0, 'TSU Tiger'),
+			(8, 'Lady Tigers Volleyball', 1, 'TSU Tiger'),
+			(9, 'Tigers Hockey', 1, 'TSU Tiger'),
+			(10, 'Tigers Swimming', 1, 'TSU Tiger'),
+			(11, 'Tigers Lacrosse', 0, 'TSU Tiger'),
+			(12, 'Tigers Football', 1, 'TSU Tiger'),
+			(13, 'Lady Tigers Diving', 0, 'TSU Tiger')
+
+SELECT * FROM Athletics.Team;
+
+
+
+INSERT INTO Athletics.NewsList (TeamId, TeamName)
+	VALUES	(13, 'Lady Tigers Diving'),
+			(9, 'Tigers Hockey'),
+			(12, 'Tigers Football'),
+			(2, 'Lady Tigers Basketball')
 
 SELECT * FROM Athletics.NewsList;
-SELECT * FROM Athletics.Team;
+
+
+INSERT INTO Athletics.Schedule (TeamId, GameDate, StartTime, EndTime, DayOfTheWeek, City, GameState, Opponent, GameType)
+	VALUES  (2, '2020-08-27', '18:00:00', '19:45:00', 'Thursday', 'Columbia', 'MO', 'MIZZOU', 'Regular Season: HOME'),
+			(8, '2021-04-17', '15:00:00', '17:00:00', 'Friday', 'St. Louis', 'MO', 'SLU', 'Regular Season: AWAY'),
+			(9, '2020-02-02', '12:00:00', '14:30:00', 'Saturday', 'Columbus', 'OH', 'OHIO STATE', 'Regional Playoffs: AWAY'),
+			(5, '2021-03-27', '13:25:00', '19:00:00', 'Wednesday', 'Hazelwood', 'MO', 'MO STATE', 'Regular Season: AWAY')
+
 SELECT * FROM Athletics.Schedule;
+
+
+INSERT INTO Athletics.Article (Headline, PostDate, Content, NewsListId )
+	VALUES ('Tigers Football Lose to MIZZOU Away Game', '2020-08-27 19:35:45', 'MIZZOU wins their home game to TSU Tigers 36-27', 2),
+			(' Lady Tigers Basketball to host "Meet and Greet" Wednesday April 5 at 6:30 pm in Dulany', '2021-03-29 12:35:00', 'Come meet the Lady Tigers Basketball team at Dulany April 5, 2021!', 1),
+			('E-Tigers with Nationals', '2021-05-15 14:55:45', 'TSU E-Tigers win National Gaming Competition. UMSL comes in second place and Columbia College in third.', 3)
+
 SELECT * FROM Athletics.Article;
+
+
+INSERT INTO Athletics.Player (AthleteId, TeamId, Position, UniformNumber)
+	VALUES  (2, 1, 'Center', 49),
+			(4, 4, 'Server', 3),
+			(3, 12, 'Center', 15),
+			(1, 12, 'Quarter Back', 22)
+
 SELECT * FROM Athletics.Player;
 
 
