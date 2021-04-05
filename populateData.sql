@@ -117,7 +117,8 @@ INSERT INTO Athletics.Season (SeasonName, StartDate, EndDate)
 SELECT * FROM Athletics.Season;
 
 INSERT INTO Athletics.Sport (SeasonId, SportName)
-	VALUES (1, N'Basketball'),
+	VALUES (1, N'Mens Basketball'),
+		   (1, N'Womens Basketball'),
 		   (1, N'E-Sports'),
 		   (3, N'Golf'),
 		   (4, N'Tennis'),
@@ -134,4 +135,13 @@ INSERT INTO Athletics.Sport (SeasonId, SportName)
 SELECT * FROM Athletics.Sport;
 
 
-
+INSERT INTO Athletics.Game (GameType)
+	VALUES ('Regular Season: HOME'),
+		   ('Regular Season: HOME'),
+		   ('Regional Playoffs: AWAY'),
+		   ('NCAA Tournament: HOME'),
+		   ('NCAA Tournament: AWAY'),
+		   ('Regular Season: HOME'),
+		   ('Regional Playoffs: HOME'),
+		   ('Special Event: HOME'),
+		   ('Regular Season: HOME'),
