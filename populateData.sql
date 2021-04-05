@@ -118,11 +118,18 @@ SELECT * FROM Athletics.Season;
 
 INSERT INTO Athletics.Sport (SeasonId, SportName)
 	VALUES (1, N'Basketball'),
-		   (4, N'Golf'),
+		   (1, N'E-Sports'),
+		   (3, N'Golf'),
 		   (4, N'Tennis'),
 		   (3, N'Baseball'),
+		   (3, N'Softball'),
+		   (2, N'Bowling'),
+		   (4, N'Volleyball'),
 		   (2, N'Hockey'),
-		   (1, N'Football')
+		   (3, N'Swimming'),
+		   (4, N'Lacrosse'),
+		   (1, N'Football'),
+		   (4, N'Diving')
 
 SELECT * FROM Athletics.Sport;
 
