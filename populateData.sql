@@ -166,7 +166,7 @@ INSERT INTO Athletics.Schedule (TeamId, GameDate, StartTime, EndTime, DayOfTheWe
 SELECT * FROM Athletics.Schedule;
 
 
-INSERT INTO Athletics.Article (Headline, PostDate, Content, NewsListId )
+INSERT INTO Athletics.Article (Headline, PostDate, Content, NewsListId)
 	VALUES ('Tigers Football Lose to MIZZOU Away Game', '2020-08-27 19:35:45', 'MIZZOU wins their home game to TSU Tigers 36-27', 2),
 			('Lady Tigers Basketball to host "Meet and Greet" Wednesday April 5 at 6:30 pm in Dulany', '2021-03-29 12:35:00', 'Come meet the Lady Tigers Basketball team at Dulany April 5, 2021!', 1),
 			('E-Tigers with Nationals', '2021-05-15 14:55:45', 'TSU E-Tigers win National Gaming Competition. UMSL comes in second place and Columbia College in third.', 3)
