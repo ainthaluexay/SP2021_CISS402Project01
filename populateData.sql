@@ -182,6 +182,8 @@ INSERT INTO Athletics.Player (AthleteId, TeamId, Position, UniformNumber)
 
 SELECT * FROM Athletics.Player;
 
+SELECT
+
 
 
 
