@@ -149,7 +149,8 @@ CREATE TABLE Athletics.Athlete
 
 CREATE TABLE Athletics.NewsList
 (
-	NewsListId INT NOT NULL IDENTITY
+	NewsListId INT NOT NULL IDENTITY,
+	TeamName NVARCHAR(500),
 	CONSTRAINT PK_NewsList PRIMARY KEY(NewsListId)
 );
 
@@ -196,6 +197,7 @@ CREATE TABLE Athletics.Player
 (
 	AthleteId INT NOT NULL,
 	TeamId INT NOT NULL, 
+	Roster BIT NOT NULL,
 	Position NVARCHAR(120) NOT NULL,
 	UniformNumber INT NOT NULL
 	CONSTRAINT PK_Player PRIMARY KEY(AthleteId, TeamId),

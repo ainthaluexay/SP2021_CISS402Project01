@@ -131,32 +131,40 @@ INSERT INTO Athletics.Athlete (FirstName, LastName, AthleteHeight, AthleteWeight
 
 SELECT * FROM Athletics.Athlete;
 
-INSERT INTO Athletics.Team (SportId,TeamName,Roster, Mascot)
-	VALUES	(1, 'Tigers Basketball', 1, 'TSU Tiger'),
-			(2, 'Lady Tigers Basketball', 1, 'TSU Tiger'),
-			(3, 'Tigers Golf', 0, 'TSU Tiger'),
-			(4, 'Lady Tigers Tennis', 0, 'TSU Tiger'),
-			(5, 'Tigers Baseball', 1, 'TSU Tiger'),
-			(6, 'Tigers Softball', 1, 'TSU Tiger'),
-			(7, 'Lady Tigers Bowling', 0, 'TSU Tiger'),
-			(8, 'Lady Tigers Volleyball', 1, 'TSU Tiger'),
-			(9, 'Tigers Hockey', 1, 'TSU Tiger'),
-			(10, 'Tigers Swimming', 1, 'TSU Tiger'),
-			(11, 'Tigers Lacrosse', 0, 'TSU Tiger'),
-			(12, 'Tigers Football', 1, 'TSU Tiger'),
-			(13, 'Lady Tigers Diving', 0, 'TSU Tiger')
+INSERT INTO Athletics.NewsList ( TeamName)
+	VALUES	('Tigers Basketball'),
+			('Lady Tigers Basketball'),
+			('Tigers Golf'),
+			('Lady Tigers Tennis'),
+			('Tigers Baseball'),
+			('Tigers Softball'),
+			( 'Lady Tigers Bowling'),
+			('Lady Tigers Volleyball'),
+			( 'Tigers Hockey'),
+			('Tigers Swimming'),
+			( 'Tigers Lacrosse'),
+			('Tigers Football'),
+			( 'Lady Tigers Diving')
+
+SELECT * FROM Athletics.NewsList;
+
+INSERT INTO Athletics.Team (SportId,TeamName, Mascot, NewsListId)
+	VALUES	(1, 'Tigers Basketball',  'TSU Tiger', 1),
+			(2, 'Lady Tigers Basketball',  'TSU Tiger', 2),
+			(3, 'Tigers Golf',  'TSU Tiger', 3),
+			(4, 'Lady Tigers Tennis',  'TSU Tiger', 4),
+			(5, 'Tigers Baseball',  'TSU Tiger', 5),
+			(6, 'Tigers Softball', 'TSU Tiger', 6),
+			(7, 'Lady Tigers Bowling','TSU Tiger', 7),
+			(8, 'Lady Tigers Volleyball',  'TSU Tiger', 8),
+			(9, 'Tigers Hockey',  'TSU Tiger', 9),
+			(10, 'Tigers Swimming',  'TSU Tiger', 10 ),
+			(11, 'Tigers Lacrosse',  'TSU Tiger', 11),
+			(12, 'Tigers Football', 'TSU Tiger', 12),
+			(13, 'Lady Tigers Diving',  'TSU Tiger', 13)
 
 SELECT * FROM Athletics.Team;
 
-
-
-INSERT INTO Athletics.NewsList (TeamId, TeamName)
-	VALUES	(13, 'Lady Tigers Diving'),
-			(9, 'Tigers Hockey'),
-			(12, 'Tigers Football'),
-			(2, 'Lady Tigers Basketball')
-
-SELECT * FROM Athletics.NewsList;
 
 
 INSERT INTO Athletics.Schedule (TeamId, GameDate, StartTime, EndTime, DayOfTheWeek, City, GameState, Opponent, GameType)
@@ -176,11 +184,11 @@ INSERT INTO Athletics.Article (Headline, PostDate, Content, NewsListId)
 SELECT * FROM Athletics.Article;
 
 
-INSERT INTO Athletics.Player (AthleteId, TeamId, Position, UniformNumber)
-	VALUES  (2, 1, 'Center', 49),
-			(4, 4, 'Server', 3),
-			(3, 12, 'Center', 15),
-			(1, 12, 'Quarter Back', 22)
+INSERT INTO Athletics.Player (AthleteId, TeamId, Roster, Position, UniformNumber)
+	VALUES  (2, 1, 1, 'Center', 49),
+			(4, 4, 1, 'Server', 3),
+			(3, 12, 1, 'Center', 15),
+			(1, 12, 1, 'Quarter Back', 22)
 
 SELECT * FROM Athletics.Player;
 

@@ -22,15 +22,31 @@ FROM Athletics.Article
 WHERE ArticleId = 2;
 
 --6 e. Update a women's basketball schedule at a specific future date. Modify the play time due to the weather forecast.
+--create trigger
+--when schedule updates
+--article updates
+GO
+CREATE OR ALTER TRIGGER Athletics.trgScheduleArticleUpdate
+ON Athletics.Schedule
+AFTER UPDATE
+AS
+SET NOCOUNT ON;
+DECLARE @auditAction NVARCHAR(1000);
+SET @auditAction = '';
+IF UPDATE (StartTime)
+	SET @auditAction += 'There was an update to the Lady Tigers Basketball game start time due to inclement weather.';
+
+INSERT INTO Athletics.Article (Headline, PostDate, Content, NewsListId)
+	VALUES  ('Schedule Update', GETDATE(), @auditAction, 2);
+
+GO
+
 UPDATE Athletics.Schedule
 	SET StartTime = '12:00:00',
 		EndTime = '14:30:00'
+	WHERE TeamId = 2;
 
 SELECT * FROM Athletics.Schedule;
-
-INSERT INTO Athletics.Article (Headline, PostDate, Content, NewsListId)
-	VALUES ('Lady Tigers Basketball Time Change!!!!', '2020-08-27 08:52:00', 'The Lady Tigers Basketball game time has changed to 12:00 pm due to inclement weather', 4)
-
 SELECT * FROM Athletics.Article;
 
 --f Display all home games for womans basketball
