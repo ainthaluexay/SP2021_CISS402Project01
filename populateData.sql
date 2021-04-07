@@ -55,6 +55,12 @@ INSERT INTO Sales.Merchandise (Item, ItemDescription, Price, SalePrice)
 				('Season Ticket Package', 'Season Tickets: Womens Soccer', 210.00, 231.00),
 				('Baseball Hat', 'TSU Baseball Cap One Size', 28.50, 31.35)
 
+INSERT INTO Sales.Merchandise (Item, ItemDescription, Price, SalePrice)
+		VALUES ('Lady Tigers Basketball T-shirt', 'TSU S Sport Shirt', 25.99, 28.59), 
+		('Lady Tigers Basketball T-shirt', 'TSU L Sport Shirt', 25.99, 28.59),
+		('Lady Tigers Basketball T-shirt', 'TSU XL Sport Shirt', 27.99, 30.79)
+
+
 SELECT * FROM Sales.Merchandise;
 
 INSERT INTO Sales.Purchase (AccountId, MerchandiseId, Quantity)
@@ -72,6 +78,11 @@ INSERT INTO Sales.Ticket (AccountId,TicketPrice, SportType, SeatType, SaleDateTi
 			(4, 35.00, N'Baseball', N'Section A Seat 22', '2020-03-15 12:00:34', '2021-03-23 19:00:00', N'MIZZOU'),
 			(1, 35.00, N'Womens Soccer', N'Section D Seat 05', '2021-01-10 10:36:13', '2021-05-11 15:00:00', N'UMSL'),
 			(6, 35.00, N'Womens Softball', N'Section A Seat 33', '2020-12-05 22:54:10', '2021-06-12 15:45:00', N'Stephens College')
+
+INSERT INTO Sales.Ticket (AccountId,TicketPrice, SportType, SeatType, SaleDateTime, GameDateTime, OpponentName)
+	VALUES  (2, 35.00, N'Womens Basketball', N'Section F Seat 03', '2021-02-10 08:30:04', '2021-09-10 12:00:00', N'Columbia College'),
+	(3, 35.00, N'Womens Basketball', N'Section B Seat 53', '2021-03-15 17:30:04', '2021-09-13 17:00:00', N'Stephens College'),
+	(6, 35.00, N'Womens Basketball', N'Section A Seat 03', '2020-09-10 17:30:04', '2021-10-10 14:45:00', N'SLU')
 
 SELECT * FROM Sales.Ticket;
 
@@ -189,6 +200,9 @@ INSERT INTO Athletics.Player (AthleteId, TeamId, Roster, Position, UniformNumber
 			(4, 4, 1, 'Server', 3),
 			(3, 12, 1, 'Center', 15),
 			(1, 12, 1, 'Quarter Back', 22)
+
+INSERT INTO Athletics.Player (AthleteId, TeamId, Roster, Position, UniformNumber)
+	VALUES (2, 2, 1, 'Center', 51)
 
 SELECT * FROM Athletics.Player;
 
