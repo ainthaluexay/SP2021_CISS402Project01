@@ -11,7 +11,9 @@ FROM Athletics.Team
 WHERE TeamId = 2;
 
 --6 c. Display all the statistics for women's basketball played at a specific date in the past.
---
+SELECT *
+FROM Athletics.Season
+WHERE EndDate = '2021-02-28 00:00:00';
 
 
 --6 d. Display all new related to women's basketball.
@@ -31,3 +33,7 @@ INSERT INTO Athletics.Article (Headline, PostDate, Content, NewsListId)
 
 SELECT * FROM Athletics.Article;
 
+--f Display all home games for womans basketball
+SELECT *
+FROM Athletics.Schedule
+WHERE City = 'Columbia';
