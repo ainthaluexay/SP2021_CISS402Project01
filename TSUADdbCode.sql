@@ -1,5 +1,5 @@
---practice for Push and commit
---changetest
+--practice to push to github
+
 USE master;
 IF DB_ID(N'TSUAD') IS NOT NULL DROP DATABASE TSUAD
 CREATE DATABASE TSUAD;
@@ -85,15 +85,14 @@ CREATE TABLE Sales.Purchase
 
 CREATE TABLE Sales.Ticket
 (
-	AccountId INT NOT NULL,
 	TicketId INT NOT NULL IDENTITY,
 	TicketPrice MONEY NOT NULL,
 	SportType NVARCHAR(120) NOT NULL,
 	SeatType NVARCHAR(120) NOT NULL,
 	SaleDateTime DATETIME2 NULL,
 	GameDateTime DATETIME2 NULL,
-	OpponentName NVARCHAR(1000) NOT NULL
-	
+	OpponentName NVARCHAR(1000) NOT NULL,
+	AccountId INT NOT NULL
 	CONSTRAINT PK_Ticket PRIMARY KEY(TicketId),
 	CONSTRAINT FK_Ticket_Account FOREIGN KEY(AccountId) REFERENCES Sales.Account(AccountId)
 );
@@ -136,7 +135,6 @@ CREATE TABLE Athletics.Game
 
 CREATE TABLE Athletics.Athlete
 (
-	SportId INT NULL,
 	AthleteId INT NOT NULL IDENTITY,
 	FirstName NVARCHAR(120) NOT NULL,
 	LastName NVARCHAR(120) NOT NULL,
@@ -145,47 +143,40 @@ CREATE TABLE Athletics.Athlete
 	Hometown NVARCHAR(120) NOT NULL,
 	Class NVARCHAR(120) NOT NULL,
 	HighSchool NVARCHAR(120) NOT NULL,
-	Bio NVARCHAR(120) NOT NULL,
-	
-	CONSTRAINT PK_Athlete PRIMARY KEY(AthleteId),
-	CONSTRAINT FK_Athlete_Sport FOREIGN KEY(SportId) REFERENCES Athletics.Sport(SportId)
+	Bio NVARCHAR(120) NOT NULL
+	CONSTRAINT PK_Athlete PRIMARY KEY(AthleteId)
 )
+
+CREATE TABLE Athletics.NewsList
+(
+	NewsListId INT NOT NULL IDENTITY
+	CONSTRAINT PK_NewsList PRIMARY KEY(NewsListId)
+);
 
 CREATE TABLE Athletics.Team
 (
 	TeamId INT NOT NULL IDENTITY,
 	TeamName NVARCHAR(120) NOT NULL,
-	Roster BIT NOT NULL,
 	Mascot NVARCHAR(120) NOT NULL,
-	SportId INT NOT NULL
+	SportId INT NOT NULL,
+	NewsListId INT NOT NULL
 	CONSTRAINT PK_Team PRIMARY KEY(TeamId),
-	CONSTRAINT FK_Team_Sport FOREIGN KEY(SportId) REFERENCES Athletics.Sport(SportId)
+	CONSTRAINT FK_Team_Sport FOREIGN KEY(SportId) REFERENCES Athletics.Sport(SportId),
+	CONSTRAINT FK_Team_NewsList FOREIGN KEY(NewsListId) REFERENCES Athletics.NewsList(NewsListId)
 );
-
-CREATE TABLE Athletics.NewsList
-(
-	NewsListId INT NOT NULL IDENTITY,
-	TeamId INT NOT NULL,
-	TeamName NVARCHAR(500) NOT NULL,
-	CONSTRAINT PK_NewsList PRIMARY KEY(NewsListId),
-	CONSTRAINT FK_NewsList_Team FOREIGN KEY(TeamId) REFERENCES Athletics.Team(TeamId)
-);
-
-
 
 CREATE TABLE Athletics.Schedule
 (
 	ScheduleId INT NOT NULL IDENTITY,
-	TeamId INT NOT NULL,
-	GameDate DATE NULL,
-	StartTime TIME NOT NULL,
-	EndTime TIME NOT NULL,
+	GameDate DATETIME2 NULL,
+	StartTime DATETIME2 NULL,
+	EndTime DATETIME2 NULL,
 	DayOfTheWeek NVARCHAR(120) NOT NULL, 
 	City NVARCHAR(120) NOT NULL, 
 	GameState NVARCHAR(120) NOT NULL,
 	Opponent NVARCHAR(120) NOT NULL, 
 	GameType NVARCHAR(120) NOT NULL, 
-	
+	TeamId INT NOT NULL
 	CONSTRAINT PK_Schedule PRIMARY KEY(ScheduleId),
 	CONSTRAINT FK_Schedule_Team FOREIGN KEY(TeamId) REFERENCES Athletics.Team(TeamId)
 );
