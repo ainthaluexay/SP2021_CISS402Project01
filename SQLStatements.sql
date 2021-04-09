@@ -78,3 +78,26 @@ SELECT *
 FROM Sales.Account AS A JOIN Sales.Customer AS C
 ON A.CustomerId = C.CustomerId
 WHERE A.AccountId = 4;
+
+--question K
+SELECT C.CustomerId, FirstName, LastName, Item, ItemDescription, Quantity, SalePrice, Quantity*SalePrice AS "Total"
+FROM Sales.Customer AS C JOIN Sales.Account AS A
+ON C.CustomerId = A.CustomerId
+JOIN Sales.Purchase AS P 
+ON A.AccountId = P.AccountId
+JOIN Sales.Merchandise AS M
+ON P.MerchandiseId = M.MerchandiseId
+
+--question L
+SELECT * FROM Sales.Benefit
+
+--question M
+SELECT A.AccountId, FirstName, LastName, FLOOR(Quantity*SalePrice) AS 'Royalty Points'
+FROM Sales.Customer AS C JOIN Sales.Account AS A
+ON C.CustomerId = A.CustomerId
+JOIN Sales.Purchase AS P 
+ON A.AccountId = P.AccountId
+JOIN Sales.Merchandise AS M
+ON P.MerchandiseId = M.MerchandiseId
+ORDER BY 'Royalty Points' DESC
+
